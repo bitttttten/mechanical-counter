@@ -51,4 +51,4 @@ The component will only animate numbers and common number separators: `,`, `.`, 
 
 Will result in the following:
 
-![preview](./docs/preview2.webp)
+![preview](./docs/preview-2.webp)
