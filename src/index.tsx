@@ -22,47 +22,34 @@ export function MechanicalCounter({
   // we need to wait until we have the ref
   // so we can calculate the font height
   useEffect(() => {
-    if (isLoaded) {
-      return void 0;
-    }
-
-    let isMounted = true;
-    while (!ref.current && isMounted) {}
     set(true);
-    return () => {
-      isMounted = false;
-    };
-  }, [ref]);
+  }, []);
 
-  const placeholder = (
-    <span
-      style={{
-        color: "transparent",
-        position: `absolute`,
-        top: 0,
-        left: 0,
-        height,
-        lineHeight: typeof height === "string" ? height : `${height}px`,
-      }}
-      ref={ref}
-    >
-      {text}
-    </span>
-  );
+  const baseStyles = {
+    height,
+    lineHeight: typeof height === "string" ? height : `${height}px`,
+  };
 
   if (!isLoaded) {
-    return placeholder;
+    // it's opacity 0 since we only really want to get the ref
+    // to calculate the font height
+    return (
+      <div>
+        <span style={{ ...baseStyles, opacity: 0 }} ref={ref}>
+          {text}
+        </span>
+      </div>
+    );
   }
 
   return (
     <motion.div
-      animate={{
-        width: totalWidth,
-      }}
       initial={{
         width: totalWidth,
       }}
-      exit={{ width: 0, opacity: 0 }}
+      animate={{
+        width: totalWidth,
+      }}
       transition={{ ease: "easeOut" }}
       style={{
         overflow: "hidden",
@@ -71,7 +58,20 @@ export function MechanicalCounter({
         lineHeight: typeof height === "string" ? height : `${height}px`,
       }}
     >
-      {placeholder}
+      <span
+        style={{
+          color: "transparent",
+          position: `absolute`,
+          top: 0,
+          left: 0,
+          height,
+          lineHeight: typeof height === "string" ? height : `${height}px`,
+        }}
+        ref={ref}
+      >
+        {" "}
+        {text}
+      </span>
       <AnimatePresence initial={false}>
         {textArray.map((letter, index) => {
           const left = stats.slice(0, index).reduce(count, 0);
