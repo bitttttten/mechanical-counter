@@ -16,6 +16,8 @@
 
 </div>
 
+![preview](https://imgur.com/a/lRJqTsG.gifv)
+
 ## Install
 
 ```sh
