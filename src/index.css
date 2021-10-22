@@ -1,0 +1,21 @@
+.text {
+  overflow: hidden;
+  position: relative;
+  height: 1em;
+}
+
+.text-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.letter {
+  position: relative;
+}
+
+.letter-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
