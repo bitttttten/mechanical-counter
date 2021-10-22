@@ -22,7 +22,7 @@ export function Vertical({ letter }: VerticalProps) {
       <motion.div
         initial={{ translateY, opacity: 0 }}
         animate={{ translateY, opacity: 1 }}
-        exit={{ opacity: 0 }}
+        exit={{ translateY, opacity: 0 }}
         transition={{ ease: "easeOut" }}
         style={{
           position: `absolute`,
