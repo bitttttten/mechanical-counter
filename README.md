@@ -42,6 +42,8 @@ export function App() {
 
 The component will only animate numbers and common number separators: `,`, `.`, and `-`. If you want to include text before the number, then you must include that along side the component. It's totally fine to include non-supported characters in the text you send in to the component through the "text" prop, however, they must be added as a suffix to the text.
 
+Here is an example of adding text before the number, as a prefix, and also including some plain text—that is "unsupported characters"—after the number, as a suffix.
+
 ```js
 <div style={{ display: "flex", alignItems: "center" }}>
   EU€
