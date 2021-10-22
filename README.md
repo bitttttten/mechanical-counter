@@ -51,6 +51,6 @@ Here is an example of adding text before the number, as a prefix, and also inclu
 </div>
 ```
 
-Will result in the following:
+The code above will result in the following:
 
 ![preview](./docs/preview-2.webp)
