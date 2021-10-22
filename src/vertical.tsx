@@ -18,12 +18,7 @@ export function Vertical({ letter }: VerticalProps) {
   }
 
   return (
-    <div
-      style={{ height: containerHeight, position: "relative" }}
-      data-currentheight={translateY}
-      data-charindex={charIndex}
-      data-amountofitems={amountOfItems}
-    >
+    <div style={{ height: containerHeight, position: "relative" }}>
       <motion.div
         initial={{ translateY, opacity: 0 }}
         animate={{ translateY, opacity: 1 }}
