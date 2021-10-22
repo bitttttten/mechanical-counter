@@ -14,7 +14,8 @@
     "build": "tsc && npx uglify-js dist/",
     "fix": "eslint src/** --fix && prettier --write 'src/**/*.{js,ts,json}'",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN"
   },
   "keywords": [],
   "author": "bitttttten <bitttttten@googlemail.com>",
