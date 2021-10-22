@@ -16,7 +16,7 @@
 
 </div>
 
-![preview](https://i.imgur.com/lMY9I9J.mp4)
+![preview](./docs/preview.webp)
 
 ## Install
 
