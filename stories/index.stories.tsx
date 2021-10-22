@@ -1,10 +1,10 @@
 import { Meta, Story } from "@storybook/react";
 import { useState } from "react";
-import { Ticker, TickerProps } from "../src/index";
+import { MechanicalCounter, MechanicalCounterProps } from "../src/index";
 
-export default { title: "Ticker " } as Meta;
+export default { title: "MechanicalCounter" } as Meta;
 
-const Template: Story<TickerProps> = (props) => {
+const Template: Story<MechanicalCounterProps> = (props) => {
   const { format } = new Intl.NumberFormat("en", { currency: "EUR" });
   const [text, set] = useState(1234567890);
   const onRandomNumber = () => {
@@ -18,7 +18,7 @@ const Template: Story<TickerProps> = (props) => {
         padding: 40,
       }}
     >
-      <Ticker {...props} text={format(text)} />
+      <MechanicalCounter {...props} text={format(text)} />
       <button
         style={{ padding: 4, paddingLeft: 8, paddingRight: 8, marginTop: 16 }}
         onClick={onRandomNumber}
@@ -53,7 +53,7 @@ export const WithPrefix = () => {
 
   return (
     <>
-      <Ticker text={"EU€ " + format(text)} />
+      <MechanicalCounter text={"EU€ " + format(text)} />
       <button
         style={{ padding: 4, paddingLeft: 8, paddingRight: 8, marginTop: 16 }}
         onClick={onRandomNumber}
@@ -73,7 +73,7 @@ export const WithPrefixAndSuffix = () => {
 
   return (
     <>
-      <Ticker text={`EU€ ${format(text)} total cost`} />
+      <MechanicalCounter text={`EU€ ${format(text)} total cost`} />
       <button
         style={{ padding: 4, paddingLeft: 8, paddingRight: 8, marginTop: 16 }}
         onClick={onRandomNumber}
@@ -97,7 +97,7 @@ export const WithChangeOfLocale = () => {
 
   return (
     <>
-      <Ticker text={format(text)} />
+      <MechanicalCounter text={format(text)} />
       <button
         style={{ padding: 4, paddingLeft: 8, paddingRight: 8, marginTop: 16 }}
         onClick={onRandomNumber}

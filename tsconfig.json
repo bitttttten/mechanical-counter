@@ -1,6 +1,4 @@
 {
-  "declarationDir": "dist/types",
-  "outDir": "dist",
   "compilerOptions": {
     "target": "es5",
     "lib": ["es2017", "es7", "es6", "dom"],
@@ -11,12 +9,11 @@
     "module": "esnext",
     "moduleResolution": "node",
     "isolatedModules": true,
-    "outDir": "dist",
     "noEmit": true,
     "jsx": "preserve",
     "allowJs": true,
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "include": ["src", "stories"]
+  "include": ["src/index.tsx"]
 }

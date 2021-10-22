@@ -2,12 +2,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Vertical } from "./vertical";
 
-export interface TickerProps {
+export interface MechanicalCounterProps {
   text: string;
   height?: string | number;
 }
 
-export function Ticker({ text, height = "1em" }: TickerProps) {
+export function MechanicalCounter({
+  text,
+  height = "1em",
+}: MechanicalCounterProps) {
   const [isLoaded, set] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const getTextStats = generateTextStats(ref);
