@@ -77,12 +77,8 @@ export function MechanicalCounter({
           const left = stats.slice(0, index).reduce(count, 0);
           const width = stats[index];
 
-          // i want to keep the first 3 characters static
-          // and then also animate from the right to left, so i invert the index
-          const key =
-            index < 3
-              ? `static-${index}`
-              : `letter-${textArray.length - index}`;
+          // animate from the right to left, so we need tp invert the index
+          const key = `${textArray.length - index}`;
 
           return (
             <motion.span
