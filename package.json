@@ -19,7 +19,7 @@
     "fix": "prettier --write 'src/**/*.tsx'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN"
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "keywords": [
     "react",
