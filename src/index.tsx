@@ -52,24 +52,21 @@ export function MechanicalCounter({
       }}
       transition={{ ease: "easeOut" }}
       style={{
+        ...baseStyles,
         overflow: "hidden",
         position: "relative",
-        height,
-        lineHeight: typeof height === "string" ? height : `${height}px`,
       }}
     >
+      {/* this is the text that the user can select and copy */}
       <span
         style={{
           color: "transparent",
           position: `absolute`,
           top: 0,
           left: 0,
-          height,
-          lineHeight: typeof height === "string" ? height : `${height}px`,
         }}
         ref={ref}
       >
-        {" "}
         {text}
       </span>
       <AnimatePresence initial={false}>
@@ -94,6 +91,7 @@ export function MechanicalCounter({
                 left: 0,
                 pointerEvents: "none",
               }}
+              aria-hidden="true"
             >
               <Vertical letter={letter} />
             </motion.span>
