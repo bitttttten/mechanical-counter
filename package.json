@@ -26,11 +26,9 @@
     "@storybook/addon-links": "^6.3.12",
     "@storybook/react": "^6.3.12",
     "babel-loader": "^8.2.3",
+    "chromatic": "^6.0.4",
+    "framer-motion": "^4.1.17",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  },
-  "dependencies": {
-    "chromatic": "^6.0.4",
-    "framer-motion": "^4.1.17"
   }
 }
