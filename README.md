@@ -8,6 +8,10 @@
 </div>
 <br />
 <div align="center">
+  <a href="https://main--617315b23667c2003a0d878b.chromatic.com">👉 live preview 👈</a>
+</div>
+<br />
+<div align="center">
 
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Github release version](https://img.shields.io/github/tag/bitttttten/mechanical-counter.svg)](https://github.com/bitttttten/mechanical-counter/releases)
