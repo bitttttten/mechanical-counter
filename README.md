@@ -16,7 +16,7 @@
 
 </div>
 
-![preview](https://imgur.com/a/lRJqTsG.gifv)
+![preview](https://i.imgur.com/lMY9I9J.mp4)
 
 ## Install
 
