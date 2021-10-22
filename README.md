@@ -40,7 +40,7 @@ export function App() {
 
 ### Help
 
-The component will only animate numbers and common number separators: `,`, `.`, and `-`. If you want to include text before the number, then you must include that along side the component. It's totally fine to include non-supported characters in the animation, however, they must be added as a suffix to the text.
+The component will only animate numbers and common number separators: `,`, `.`, and `-`. If you want to include text before the number, then you must include that along side the component. It's totally fine to include non-supported characters in the text you send in to the component through the "text" prop, however, they must be added as a suffix to the text.
 
 ```js
 <div style={{ display: "flex", alignItems: "center" }}>
