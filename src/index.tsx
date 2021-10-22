@@ -77,7 +77,7 @@ export function MechanicalCounter({
           const left = stats.slice(0, index).reduce(count, 0);
           const width = stats[index];
 
-          // animate from the right to left, so we need tp invert the index
+          // animate from the right to left, so we need to invert the index
           const key = `${textArray.length - index}`;
 
           return (

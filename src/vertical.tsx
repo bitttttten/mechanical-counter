@@ -11,11 +11,11 @@ const containerHeight = `${amountOfItems}em`;
 export function Vertical({ letter }: VerticalProps) {
   const charIndex = chars.findIndex((char) => char === letter);
 
-  const translateY = `${(-charIndex / (amountOfItems - 1)) * 100}%`;
-
   if (charIndex === -1) {
     return <>{letter}</>;
   }
+
+  const translateY = `${(-charIndex / (amountOfItems - 1)) * 100}%`;
 
   return (
     <div style={{ height: containerHeight, position: "relative" }}>

@@ -33,3 +33,18 @@ export function App() {
   return <MechanicalCounter text="1337.12" />;
 }
 ```
+
+### Help
+
+The component will only animate numbers and common number separators: `,`, `.`, and `-`. If you want to include text before the number, then you must include that along side the component. It's totally fine to include non-supported characters in the animation, however, they must be added as a suffix to the text.
+
+```js
+<div style={{ display: "flex", alignItems: "center" }}>
+  EU€
+  <MechanicalCounter text="1234,1234 total cost" />
+</div>
+```
+
+Will result in the following:
+
+![preview](./docs/preview2.webp)

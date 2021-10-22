@@ -14,7 +14,7 @@ const Template: Story<MechanicalCounterProps> = (props) => {
   return (
     <div
       style={{
-        fontFamily: `system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji'`,
+        fontFamily: `system-ui`,
         padding: 40,
       }}
     >
@@ -52,15 +52,22 @@ export const WithPrefix = () => {
   };
 
   return (
-    <>
-      <MechanicalCounter text={"EU€ " + format(text)} />
+    <div
+      style={{
+        fontFamily: `system-ui`,
+        padding: 40,
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center" }}>
+        EU€ <MechanicalCounter text={format(text)} />
+      </div>
       <button
         style={{ padding: 4, paddingLeft: 8, paddingRight: 8, marginTop: 16 }}
         onClick={onRandomNumber}
       >
         random
       </button>
-    </>
+    </div>
   );
 };
 
@@ -72,15 +79,23 @@ export const WithPrefixAndSuffix = () => {
   };
 
   return (
-    <>
-      <MechanicalCounter text={`EU€ ${format(text)} total cost`} />
+    <div
+      style={{
+        fontFamily: `system-ui`,
+        padding: 40,
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center" }}>
+        EU€
+        <MechanicalCounter text={`${format(text)} total cost`} />
+      </div>
       <button
         style={{ padding: 4, paddingLeft: 8, paddingRight: 8, marginTop: 16 }}
         onClick={onRandomNumber}
       >
         random
       </button>
-    </>
+    </div>
   );
 };
 
