@@ -45,7 +45,7 @@ The component will only animate numbers and common number separators: `,`, `.`, 
 ```js
 <div style={{ display: "flex", alignItems: "center" }}>
   EU€
-  <MechanicalCounter text="1234,1234 total cost" />
+  <MechanicalCounter text="5,407 total cost" />
 </div>
 ```
 
