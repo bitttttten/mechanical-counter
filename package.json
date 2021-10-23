@@ -32,6 +32,7 @@
   ],
   "author": "bitttttten <bitttttten@googlemail.com>",
   "license": "ISC",
+  "repository": "https://github.com/bitttttten/mechanical-counter",
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@storybook/addon-actions": "^6.3.12",
