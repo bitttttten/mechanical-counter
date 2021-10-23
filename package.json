@@ -6,8 +6,8 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.module.js",
   "unpkg": "./dist/index.umd.js",
-  "types": "dist/types.d.ts",
-  "source": "src/index.tsx",
+  "types": "./dist/types.d.ts",
+  "source": "./src/index.tsx",
   "exports": {
     "require": "./dist/index.cjs",
     "default": "./dist/index.modern.js"
