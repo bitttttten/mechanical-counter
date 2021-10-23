@@ -15,6 +15,7 @@
   "scripts": {
     "prebuild": "rimraf dist/",
     "build": "microbundle -i src/index.tsx --jsx React.createElement",
+    "release": "npm version patch && npm run build && git push --follow-tags && npm publish",
     "postbuild": "rimraf dist/vertical*",
     "fix": "prettier --write 'src/**/*.tsx'",
     "storybook": "start-storybook -p 6006",
