@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Vertical } from "./vertical";
@@ -14,7 +14,7 @@ export function MechanicalCounter({
 }: MechanicalCounterProps) {
   const [isLoaded, set] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const getTextStats = generateTextStats(ref);
+  const getTextStats = useMemo(() => generateTextStats(ref), [ref.current]);
 
   const textArray = String(text).split("");
   const stats = textArray.map(getTextStats);
