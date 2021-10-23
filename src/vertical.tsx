@@ -13,7 +13,7 @@ export function Vertical({ letter }: VerticalProps) {
   const charIndex = chars.findIndex((char) => char === letter);
 
   if (charIndex === -1) {
-    return <>{letter}</>;
+    return <React.Fragment>{letter}</React.Fragment>;
   }
 
   const translateY = `${(-charIndex / (amountOfItems - 1)) * 100}%`;
