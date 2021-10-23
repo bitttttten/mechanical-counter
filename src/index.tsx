@@ -72,7 +72,7 @@ export function MechanicalCounter({
       </span>
       <AnimatePresence initial={false}>
         {textArray.map((letter, index) => {
-          const left = stats.slice(0, index).reduce(count, 0);
+          const x = stats.slice(0, index).reduce(count, 0);
           const width = stats[index];
 
           // animate from the right to left, so we need to invert the index
@@ -82,8 +82,8 @@ export function MechanicalCounter({
             <motion.span
               key={key}
               layoutId={key}
-              animate={{ left, width, opacity: 1 }}
-              initial={{ left, width, opacity: 0 }}
+              animate={{ x, width, opacity: 1 }}
+              initial={{ x, width, opacity: 0 }}
               exit={{ width: 0, opacity: 0 }}
               transition={{ ease: "easeOut" }}
               style={{

@@ -16,14 +16,14 @@ export function Vertical({ letter }: VerticalProps) {
     return <React.Fragment>{letter}</React.Fragment>;
   }
 
-  const translateY = `${(-charIndex / (amountOfItems - 1)) * 100}%`;
+  const y = `${(-charIndex / (amountOfItems - 1)) * 100}%`;
 
   return (
     <div style={{ height: containerHeight, position: "relative" }}>
       <motion.div
-        initial={{ translateY, opacity: 0 }}
-        animate={{ translateY, opacity: 1 }}
-        exit={{ translateY, opacity: 0 }}
+        initial={{ y, opacity: 0 }}
+        animate={{ y, opacity: 1 }}
+        exit={{ y, opacity: 0 }}
         transition={{ ease: "easeOut" }}
         style={{
           position: `absolute`,
