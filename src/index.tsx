@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Vertical } from "./vertical";
 
 export interface MechanicalCounterProps {
-  text: string;
+  text: string | number;
   height?: string | number;
 }
 
@@ -16,7 +16,7 @@ export function MechanicalCounter({
   const ref = useRef<HTMLDivElement>(null);
   const getTextStats = generateTextStats(ref);
 
-  const textArray = text.split("");
+  const textArray = String(text).split("");
   const stats = textArray.map(getTextStats);
   const totalWidth = stats.reduce(count, 0);
 
