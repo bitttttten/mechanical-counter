@@ -16,6 +16,7 @@
     "prebuild": "rimraf dist/",
     "build": "microbundle -i src/index.tsx --jsx React.createElement",
     "release": "npm version patch && npm run build && git push --follow-tags && npm publish",
+    "postrelease": "rm README.md && cp README.template.md README.md && sed -i \"\" \"s/__version__/$(git tag --sort=taggerdate | tail -1)/g\" README.md",
     "postbuild": "rimraf dist/vertical*",
     "fix": "prettier --write 'src/**/*.tsx'",
     "storybook": "start-storybook -p 6006",
