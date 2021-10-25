@@ -8,22 +8,24 @@ export interface MechanicalCounterProps {
   height?: string | number;
 }
 
+const transition = { ease: "easeOut" };
+
 export function MechanicalCounter({
   text,
   height = "1em",
 }: MechanicalCounterProps) {
   const [isLoaded, set] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const getTextStats = useMemo(() => generateTextStats(ref), [ref.current]);
-
-  const textArray = String(text).split("");
-  const stats = textArray.map(getTextStats);
-  const totalWidth = stats.reduce(count, 0);
+  const getTextStats = useMemo(() => generateTextStats(ref), [ref]);
 
   // we need to wait until we have the ref
   // so we can calculate the font height
   useEffect(() => {
-    set(true);
+    if (typeof document.fonts.ready === "object") {
+      document.fonts.ready.finally(() => set(true));
+    } else {
+      set(true);
+    }
   }, []);
 
   const baseStyles = {
@@ -35,13 +37,15 @@ export function MechanicalCounter({
     // it's opacity 0 since we only really want to get the ref
     // to calculate the font height
     return (
-      <div>
-        <span style={{ ...baseStyles, opacity: 0 }} ref={ref}>
-          {text}
-        </span>
+      <div style={{ ...baseStyles, opacity: 0 }}>
+        <span ref={ref}>{text}</span>
       </div>
     );
   }
+
+  const textArray = String(text).split("");
+  const stats = textArray.map(getTextStats);
+  const totalWidth = Math.ceil(stats.reduce(count, 0));
 
   return (
     <motion.div
@@ -51,7 +55,7 @@ export function MechanicalCounter({
       animate={{
         width: totalWidth,
       }}
-      transition={{ ease: "easeOut" }}
+      transition={transition}
       style={{
         ...baseStyles,
         overflow: "hidden",
@@ -70,6 +74,7 @@ export function MechanicalCounter({
       >
         {text}
       </span>
+
       <AnimatePresence initial={false}>
         {textArray.map((letter, index) => {
           const x = stats.slice(0, index).reduce(count, 0);
@@ -108,14 +113,17 @@ function count(acc: number, curr: number) {
 }
 
 function generateTextStats(ref: React.RefObject<HTMLDivElement>) {
+  let hasCalculatedFont = false;
   const cache = new Map<string, number>();
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d") as CanvasRenderingContext2D;
 
   return function (letter: string): number {
     if (!cache.has(letter)) {
-      context.font = getComputedStyle(ref.current ?? document.body).font;
-
+      if (!hasCalculatedFont) {
+        context.font = getComputedStyle(ref.current ?? document.body).font;
+        hasCalculatedFont = true;
+      }
       cache.set(letter, context.measureText(letter)?.width ?? 0);
     }
 
