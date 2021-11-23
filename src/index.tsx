@@ -21,7 +21,10 @@ export function MechanicalCounter({
   // we need to wait until we have the ref
   // so we can calculate the font height
   useEffect(() => {
-    if (typeof document.fonts.ready === "object") {
+    if (
+      typeof document !== "undefined" &&
+      typeof document.fonts.ready === "object"
+    ) {
       document.fonts.ready.finally(() => set(true));
     } else {
       set(true);
