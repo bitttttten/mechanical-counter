@@ -116,8 +116,16 @@ function count(acc: number, curr: number) {
 }
 
 function generateTextStats(ref: React.RefObject<HTMLDivElement>) {
-  let hasCalculatedFont = false;
   const cache = new Map<string, number>();
+
+  // safety for nodejs/ssr
+  if (typeof document === "undefined") {
+    return function (letter: string): number {
+      return cache.get(letter) ?? 0;
+    };
+  }
+
+  let hasCalculatedFont = false;
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d") as CanvasRenderingContext2D;
 
