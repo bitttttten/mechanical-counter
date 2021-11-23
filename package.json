@@ -1,6 +1,6 @@
 {
   "name": "mechanical-counter",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "mechanical counter for react built with framer-motion",
   "type": "module",
   "main": "./dist/index.cjs",
