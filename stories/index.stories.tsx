@@ -7,27 +7,51 @@ export default { title: "MechanicalCounter" } as Meta;
 const Template: Story<MechanicalCounterProps> = (props) => {
   const { format } = new Intl.NumberFormat("en", { currency: "EUR" });
   const [text, set] = useState(1234567890);
+  const [fontFamily, setFontFamily] = useState("system-ui");
+
   const onRandomNumber = () => {
     set(generateRandomNumber());
+  };
+
+  const onRandomFontFamily = () => {
+    const nextFont = generateRandomFont()
+    if (nextFont === fontFamily) {
+      return onRandomFontFamily()
+    }
+    setFontFamily(nextFont);
   };
 
   return (
     <div
       style={{
-        fontFamily: `system-ui`,
+        fontFamily,
         padding: 40,
       }}
     >
-      <MechanicalCounter {...props} text={format(text)} />
+      <MechanicalCounter {...props} text={format(text)} key={fontFamily} />
       <button
         style={{ padding: 4, paddingLeft: 8, paddingRight: 8, marginTop: 16 }}
         onClick={onRandomNumber}
       >
-        random
+        random text
       </button>
-      <p><i>rendering {text}</i></p>
+      <button
+        style={{ padding: 4, paddingLeft: 8, paddingRight: 8, marginTop: 16 }}
+        onClick={onRandomFontFamily}
+      >
+        random font
+      </button>
+      <p>
+        <i>rendering {text}</i>
+      </p>
     </div>
   );
+};
+
+const generateRandomFont = () => {
+  const fonts = ["Arial", "Verdana", "Helvetica", "system-ui", "Comic Sans"];
+
+  return fonts[Math.floor(Math.random() * fonts.length)];
 };
 
 const generateRandomNumber = () => {
