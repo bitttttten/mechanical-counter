@@ -132,7 +132,7 @@ function generateTextStats(ref: React.RefObject<HTMLDivElement>) {
   return function (letter: string): number {
     if (!cache.has(letter)) {
       if (!hasCalculatedFont) {
-        context.font = getComputedStyle(ref.current ?? document.body).font;
+        context.font = getFont(ref.current ?? document.body);
         hasCalculatedFont = true;
       }
       cache.set(letter, context.measureText(letter)?.width ?? 0);
@@ -140,4 +140,17 @@ function generateTextStats(ref: React.RefObject<HTMLDivElement>) {
 
     return cache.get(letter) ?? 0;
   };
+}
+
+function getFont(element: HTMLElement) {
+  const font = getComputedStyle(element).getPropertyValue("font");
+
+  if (font) {
+    return font;
+  }
+
+  const fontFamily = getComputedStyle(element).getPropertyValue("font-family");
+  const fontSize = getComputedStyle(element).getPropertyValue("font-size");
+
+  return `${fontSize} / ${fontSize} ${fontFamily}`;
 }
