@@ -9,10 +9,17 @@ const chars = ["9", "8", "7", "6", "5", "4", "3", "2", "1", "0", ",", ".", "-"];
 const amountOfItems = chars.length + 1;
 const containerHeight = `${amountOfItems}em`;
 
-export function Vertical({ letter }: VerticalProps) {
-  const charIndex = chars.findIndex((char) => char === letter);
+// we make a map of char to index: 9 => 0, 8 => 1, 7 => 2, etc.
+const charsIndex = new Map<string, number>(
+  Array(chars.length).fill(true).map((_, index) => [chars[index], index])
+)
 
-  if (charIndex === -1) {
+const children = chars.map((char) => <div key={char}>{char}</div>);
+
+export function Vertical({ letter }: VerticalProps) {
+  const charIndex = charsIndex.get(letter);
+
+  if (!charIndex) {
     return <React.Fragment>{letter}</React.Fragment>;
   }
 
@@ -30,9 +37,7 @@ export function Vertical({ letter }: VerticalProps) {
           left: 0,
         }}
       >
-        {chars.map((char) => (
-          <div key={char}>{char}</div>
-        ))}
+        {children}
       </motion.div>
     </div>
   );
