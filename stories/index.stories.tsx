@@ -14,9 +14,9 @@ const Template: Story<MechanicalCounterProps> = (props) => {
   };
 
   const onRandomFontFamily = () => {
-    const nextFont = generateRandomFont()
+    const nextFont = generateRandomFont();
     if (nextFont === fontFamily) {
-      return onRandomFontFamily()
+      return onRandomFontFamily();
     }
     setFontFamily(nextFont);
   };
@@ -49,7 +49,18 @@ const Template: Story<MechanicalCounterProps> = (props) => {
 };
 
 const generateRandomFont = () => {
-  const fonts = ["Arial", "Verdana", "Helvetica", "system-ui", "Comic Sans"];
+  const fonts = [
+    "Arial",
+    "Tangerine",
+    "Verdana",
+    "Inconsolata",
+    "Helvetica",
+    "'Droid Sans'",
+    "'Passions Conflict'",
+    "system-ui",
+    "Comic Sans",
+    "'Bungee Spice'"
+  ];
 
   return fonts[Math.floor(Math.random() * fonts.length)];
 };
