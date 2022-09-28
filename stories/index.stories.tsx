@@ -25,6 +25,7 @@ const Template: Story<MechanicalCounterProps> = (props) => {
       >
         random
       </button>
+      <p><i>rendering {text}</i></p>
     </div>
   );
 };
