@@ -1,6 +1,5 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import { Vertical } from "./vertical";
 
 export interface MechanicalCounterProps {
@@ -44,7 +43,7 @@ export function MechanicalCounter({
         <span ref={ref}>{text}</span>
       </div>
     );
-  }
+  } 
 
   const textArray = String(text).split("");
   const stats = textArray.map(getTextStats);
