@@ -17,8 +17,6 @@ export function MechanicalCounter({
   const ref = useRef<HTMLDivElement>(null);
   const getTextStats = useMemo(() => generateTextStats(ref), [ref]);
 
-  // we need to wait until we have the ref
-  // so we can calculate the font height
   useEffect(() => {
     if (
       typeof document !== "undefined" &&
@@ -36,8 +34,8 @@ export function MechanicalCounter({
   };
 
   if (!isLoaded) {
-    // it's opacity 0 since we only really want to get the ref
-    // to calculate the font height
+    // we need the height to calculate the font stats
+    // so we need opacity 0 to hide the font until we have it
     return (
       <div style={{ ...baseStyles, opacity: 0 }}>
         <span ref={ref}>{text}</span>
