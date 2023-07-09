@@ -59,7 +59,7 @@ const generateRandomFont = () => {
     "'Passions Conflict'",
     "system-ui",
     "Comic Sans",
-    "'Bungee Spice'"
+    "'Bungee Spice'",
   ];
 
   return fonts[Math.floor(Math.random() * fonts.length)];
@@ -79,6 +79,36 @@ export const Height = Template.bind({});
 Height.args = { height: `2em` };
 export const HeightAsNumber = Template.bind({});
 HeightAsNumber.args = { height: 30 };
+
+export const WithContainer: Story<MechanicalCounterProps> = (props) => {
+  const { format } = new Intl.NumberFormat("en", { currency: "EUR" });
+  const [text, set] = useState(1234567890);
+  const [fontFamily, setFontFamily] = useState("system-ui");
+
+  const onRandomNumber = () => {
+    set(generateRandomNumber());
+  };
+
+  return (
+    <div
+      style={{
+        fontFamily,
+        padding: 40,
+        maxWidth: 250,
+      }}
+    >
+      <div style={{ margin: "auto" }}>
+        <MechanicalCounter {...props} text={format(text)} key={fontFamily} />
+      </div>
+      <button
+        style={{ padding: 4, paddingLeft: 8, paddingRight: 8, marginTop: 16 }}
+        onClick={onRandomNumber}
+      >
+        random
+      </button>
+    </div>
+  );
+};
 
 export const WithPrefix = () => {
   const { format } = new Intl.NumberFormat("en", { currency: "EUR" });
