@@ -19,7 +19,7 @@ const children = chars.map((char) => <div key={char}>{char}</div>);
 export function Vertical({ letter }: VerticalProps) {
   const charIndex = charsIndex.get(letter);
 
-  if (!charIndex) {
+  if (charIndex === undefined) {
     return <React.Fragment>{letter}</React.Fragment>;
   }
 
